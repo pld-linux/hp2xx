@@ -17,8 +17,6 @@ BuildRequires:	pdflib-devel
 BuildRequires:	texinfo
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		_prefix		/usr/X11R6
-%define		_mandir		%{_prefix}/man
 
 %description
 hp2xx reads HPGL ASCII source files, interprets them, and converts
