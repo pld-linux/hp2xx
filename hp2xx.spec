@@ -1,7 +1,7 @@
 Summary:	HPGL converter into some vector and raster formats
 Summary(pl):	Konwerter z jêzyka HPGL do ró¿nych formatów wektorowych i rastrowych
 Name:		hp2xx
-Version:	3.4.0
+Version:	3.4.2
 Release:	1
 License:	GPL
 Group:		Applications/Graphics
@@ -13,6 +13,7 @@ BuildRequires:	XFree86-devel
 BuildRequires:	libjpeg-devel
 BuildRequires:	libpng-devel
 BuildRequires:	libtiff-devel
+BuildRequires:	pdflib-devel
 BuildRequires:	texinfo
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -40,14 +41,12 @@ hp2xx mo¿e byæ u¿ywany przez ImageMagick do konwersji plików HPGL.
 %patch1 -p1
 
 %build
-%{__make} OPT="%{rpmcflags} `pkg-config --cflags libpng12 2>/dev/null`"
+%{__make} OPT="%{rpmcflags}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
 %{__make} install DESTDIR=$RPM_BUILD_ROOT
-
-gzip -9nf CHANGES README TODO doc/{changes,hp_cmds.lst}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -60,7 +59,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc *.gz doc/*.gz
+%doc AUTHORS CHANGES README TODO doc/{changes,hp_cmds.lst}
 %attr(755,root,root) %{_bindir}/*
 %{_mandir}/man1/*
 %{_infodir}/*
