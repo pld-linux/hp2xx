@@ -42,7 +42,7 @@ hp2xx mo¿e byæ u¿ywany przez ImageMagick do konwersji plików HPGL.
 %patch1 -p1
 
 %build
-%{__make} OPT="%{?debug:-O0 -g}%{!?debug:$RPM_OPT_FLAGS}"
+%{__make} OPT="%{rpmcflags}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
