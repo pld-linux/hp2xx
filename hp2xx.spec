@@ -10,8 +10,8 @@ Patch0:		%{name}-makefile.patch
 Patch1:		%{name}-info.patch
 URL:		http://www.gnu.org/software/hp2xx/hp2xx.html
 BuildRequires:	XFree86-devel
-BuildRequires:	libpng-devel
 BuildRequires:	libjpeg-devel
+BuildRequires:	libpng-devel
 BuildRequires:	libtiff-devel
 BuildRequires:	texinfo
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -40,7 +40,7 @@ hp2xx mo¿e byæ u¿ywany przez ImageMagick do konwersji plików HPGL.
 %patch1 -p1
 
 %build
-%{__make} OPT="%{rpmcflags}"
+%{__make} OPT="%{rpmcflags} `pkg-config --cflags libpng12 2>/dev/null`"
 
 %install
 rm -rf $RPM_BUILD_ROOT
