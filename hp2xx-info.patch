@@ -1,0 +1,19 @@
+diff -Nru hp2xx-3.4.0/doc/hp2xxinf.tex hp2xx-3.4.0.new/doc/hp2xxinf.tex
+--- hp2xx-3.4.0/doc/hp2xxinf.tex	Thu Feb  1 16:05:33 2001
++++ hp2xx-3.4.0.new/doc/hp2xxinf.tex	Mon Mar 19 01:15:20 2001
+@@ -37,10 +37,11 @@
+ 
+ @ifinfo
+ @format
+-START-INFO-DIR-ENTRY
+-* HP2XX:(hp2xx).  Conversion of HP-GL graphics into raster and
+-                  vector graphics formats
+-END-INFO-DIR-ENTRY
++@dircategory File utilities:
+++@direntry
++* HP2XX:(hp2xx).			Conversion of HP-GL graphics into
++					raster and vector graphics formats
+++@end direntry
+ @end format
+ @end ifinfo
+ @c
