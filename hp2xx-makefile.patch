@@ -1,52 +1,63 @@
-diff -Nur hp2xx-3.4.2.orig/sources/Makefile hp2xx-3.4.2/sources/Makefile
---- hp2xx-3.4.2.orig/sources/Makefile	Sun Apr  7 17:45:53 2002
-+++ hp2xx-3.4.2/sources/Makefile	Sun Jul  7 16:57:03 2002
+--- hp2xx-3.4.3/sources/Makefile.orig	2002-12-28 20:29:44.000000000 +0100
++++ hp2xx-3.4.3/sources/Makefile	2003-04-21 19:19:15.000000000 +0200
 @@ -35,18 +35,18 @@
  
  # Installation sites (GNU conventions):
  #
 -prefix   = /usr/local
-+prefix   = /usr/X11R6
++prefix   = /usr
  bindir   = $(prefix)/bin
  includedir = $(prefix)/include
- mandir   = $(prefix)/man
+-mandir   = $(prefix)/man
++mandir   = $(prefix)/share/man
  man1dir  = $(mandir)/man1
 -infodir  = $(prefix)/info
-+infodir  = /usr/share/info
++infodir  = $(prefix)/share/info
  
  # CC and CFLAGS set for gcc, but any ANSI-C compiler should work.
  # For non-gcc compilers, simply set CFLAGS = -O (to start with)
  #
  CC       = gcc
--CFLAGS	= -O2 -m486 -I/usr/X11R6/include $(DEFINES) $(EX_DEFS) -Wall -pedantic -Wuninitialized -Wunused -Wreturn-type -Wmissing-prototypes -Wstrict-prototypes  
-+CFLAGS	= $(OPT) -I/usr/X11R6/include $(DEFINES) $(EX_DEFS) -Wall -pedantic -Wuninitialized -Wunused -Wreturn-type -Wmissing-prototypes -Wstrict-prototypes  
+-CFLAGS	=  -O2 -m486 -I/usr/X11R6/include $(DEFINES) $(EX_DEFS) -Wall -pedantic -Wuninitialized -Wunused -Wreturn-type -Wmissing-prototypes -Wstrict-prototypes  
++CFLAGS	=  $(OPT) -I/usr/X11R6/include $(DEFINES) $(EX_DEFS) -Wall -pedantic -Wuninitialized -Wunused -Wreturn-type -Wmissing-prototypes -Wstrict-prototypes  
  
- #CFLAGS   = +O1 -Aa -D_HPUX_SOURCE -DSYSV -I/usr/include/X11R5 -I/usr/include/X11R4 $(DEFINES)
+ #CFLAGS   = +O1 -Aa -D_HPUX_SOURCE -DSYSV -I/usr/include/X11R5 -I/usr/include/X11R4 $(DEFINES) $(EX_DEFS)
  
-@@ -67,7 +67,7 @@
+@@ -173,15 +173,15 @@
+ EX_LIBS =
  #
- DEFINES   = -DUNIX -DHAS_UNIX_X11 
- PREVIEWER = to_x11
--ALL_LIBS  = -L/usr/lib/X11R6 -lpng -ltiff -ljpeg -lz -lX11 -lm     
-+ALL_LIBS  = -L/usr/lib/X11R6 -lpng -ltiff -ljpeg -lz -lX11 -lm -lpdf
- #
- # Generic UNIX, no previewer
- #
-@@ -173,9 +173,9 @@
- EX_OBJ =
- EX_DEFS =
  # Include PDF support
--#EX_SRC += to_pdf.c
+-#EX_SRC	+= to_pdf.c
 -#EX_OBJ += to_pdf.o
 -#EX_DEFS += -DUSEPDF
-+EX_SRC += to_pdf.c
+-#EX_LIBS += -lpdf
++EX_SRC	+= to_pdf.c
 +EX_OBJ += to_pdf.o
 +EX_DEFS += -DUSEPDF
++EX_LIBS += -lpdf
  #
  # Epson Esc/P2 support 
+-#EX_SRC	+= to_escp2.c
+-#EX_OBJ	+= to_escp2.o
+-#EX_DEFS += -DEPSON
++EX_SRC	+= to_escp2.c
++EX_OBJ	+= to_escp2.o
++EX_DEFS += -DEPSON
  #
-@@ -198,9 +198,9 @@
+ # Include PNG support:
+ EX_SRC  += png.c to_png.c
+@@ -200,15 +200,15 @@
  EX_DEFS += -DJPG
+ EX_LIBS += -ljpeg
+ #
+-#EX_SRC += to_emf.c
+-#EX_OBJ += to_emf.o /usr/local/lib/libEMF.a
+-#EX_DEFS += -DEMF -I/usr/local/include/libEMF
+-#EX_LIBS += -lstdc++
++EX_SRC += to_emf.c
++EX_OBJ += to_emf.o
++EX_DEFS += -DEMF -I/usr/include/libEMF
++EX_LIBS += -lEMF
  #
  # Include ATARI extras:
 -# EX_SRC	+= to_pic.c to_pac.c
@@ -58,8 +69,8 @@ diff -Nur hp2xx-3.4.2.orig/sources/Makefile hp2xx-3.4.2/sources/Makefile
  #
  #############################################################################
  # No user-serviceable parts below!
-@@ -230,6 +230,8 @@
- 	$(CC) $(LFLAGS) $(OBJS) $(ALL_LIBS) -o $(PROGRAM)
+@@ -238,6 +238,8 @@
+ 	$(CC) $(LFLAGS) $(OBJS) $(ALL_LIBS) $(EX_LIBS) -o $(PROGRAM)
  	$(BINDCMD)
  
 +all: $(PROGRAM) hp2xx.info
@@ -67,7 +78,7 @@ diff -Nur hp2xx-3.4.2.orig/sources/Makefile hp2xx-3.4.2/sources/Makefile
  default:
  	@echo "This makefile needs manual configuration! Edit it now!
  	@echo "After configuration, you may use the following commands:
-@@ -311,15 +313,14 @@
+@@ -319,15 +321,14 @@
  install:	install-bin install-info install-man
  
  install-bin:	$(PROGRAM)

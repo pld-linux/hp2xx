@@ -1,0 +1,12 @@
+--- hp2xx-3.4.3/sources/to_emf.c.orig	2003-01-04 23:43:38.000000000 +0100
++++ hp2xx-3.4.3/sources/to_emf.c	2003-04-21 19:23:55.000000000 +0200
+@@ -42,7 +42,9 @@
+ 
+ 
+ #ifdef UNIX
++#define BYTE FAKE_BYTE
+ #include <emf.h>
++#undef BYTE
+ #else
+ #include <windows.h>
+ #undef ERROR
