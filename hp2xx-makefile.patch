@@ -18,12 +18,12 @@
  # For non-gcc compilers, simply set CFLAGS = -O (to start with)
  #
  CC       = gcc
--CFLAGS	=  -O2 -m486 -I/usr/X11R6/include $(DEFINES) $(EX_DEFS) -Wall -pedantic -Wuninitialized -Wunused -Wreturn-type -Wmissing-prototypes -Wstrict-prototypes  
+-CFLAGS	=  -O2 -g -I/usr/X11R6/include $(DEFINES) $(EX_DEFS) -Wall -pedantic -Wuninitialized -Wunused -Wreturn-type -Wmissing-prototypes -Wstrict-prototypes  
 +CFLAGS	=  $(OPT) -I/usr/X11R6/include $(DEFINES) $(EX_DEFS) -Wall -pedantic -Wuninitialized -Wunused -Wreturn-type -Wmissing-prototypes -Wstrict-prototypes  
+ LINT	= splint
+ LINTFLAGS = -weak -initallelements +posixlib -I/usr/X11R6/include $(DEFINES) $(EX_DEFS)
  
- #CFLAGS   = +O1 -Aa -D_HPUX_SOURCE -DSYSV -I/usr/include/X11R5 -I/usr/include/X11R4 $(DEFINES) $(EX_DEFS)
- 
-@@ -173,15 +173,15 @@
+@@ -173,10 +173,10 @@
  EX_LIBS =
  #
  # Include PDF support
@@ -37,15 +37,7 @@
 +EX_LIBS += -lpdf
  #
  # Epson Esc/P2 support 
--#EX_SRC	+= to_escp2.c
--#EX_OBJ	+= to_escp2.o
--#EX_DEFS += -DEPSON
-+EX_SRC	+= to_escp2.c
-+EX_OBJ	+= to_escp2.o
-+EX_DEFS += -DEPSON
- #
- # Include PNG support:
- EX_SRC  += png.c to_png.c
+ #EX_SRC	+= to_escp2.c
 @@ -200,15 +200,15 @@
  EX_DEFS += -DJPG
  EX_LIBS += -ljpeg

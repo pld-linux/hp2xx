@@ -1,12 +1,12 @@
 Summary:	HPGL converter into some vector and raster formats
 Summary(pl):	Konwerter z jêzyka HPGL do ró¿nych formatów wektorowych i rastrowych
 Name:		hp2xx
-Version:	3.4.3
+Version:	3.4.4
 Release:	1
 License:	GPL
 Group:		Applications/Graphics
 Source0:	ftp://ftp.gnu.org/gnu/hp2xx/%{name}-%{version}.tar.gz
-# Source0-md5:	c41809022a6e4d1124516bccc66aa16a
+# Source0-md5:	18808580d24b7caf2c4c7045c093329f
 Patch0:		%{name}-makefile.patch
 Patch1:		%{name}-info.patch
 Patch2:		%{name}-emf-hack.patch
@@ -42,12 +42,14 @@ hp2xx mo¿e byæ u¿ywany przez ImageMagick do konwersji plików HPGL.
 %patch2 -p1
 
 %build
-%{__make} OPT="%{rpmcflags}"
+%{__make} \
+	OPT="%{rpmcflags}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%{__make} install DESTDIR=$RPM_BUILD_ROOT
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT
 
 %clean
 rm -rf $RPM_BUILD_ROOT
