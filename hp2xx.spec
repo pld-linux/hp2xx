@@ -5,8 +5,6 @@ Version:	3.4.0
 Release:	1
 License:	GPL
 Group:		Applications/Graphics
-Group(de):	Applikationen/Grafik
-Group(pl):	Aplikacje/Grafika
 Source0:	ftp://ftp.gnu.org/gnu/hp2xx/%{name}-%{version}.tar.gz
 Patch0:		%{name}-makefile.patch
 Patch1:		%{name}-info.patch
