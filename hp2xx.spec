@@ -6,6 +6,7 @@ Release:	1
 License:	GPL
 Group:		Applications/Graphics
 Source0:	ftp://ftp.gnu.org/gnu/hp2xx/%{name}-%{version}.tar.gz
+# Source0-md5:	c41809022a6e4d1124516bccc66aa16a
 Patch0:		%{name}-makefile.patch
 Patch1:		%{name}-info.patch
 Patch2:		%{name}-emf-hack.patch
