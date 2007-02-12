@@ -1,5 +1,5 @@
 Summary:	HPGL converter into some vector and raster formats
-Summary(pl):	Konwerter z jêzyka HPGL do ró¿nych formatów wektorowych i rastrowych
+Summary(pl.UTF-8):   Konwerter z jÄ™zyka HPGL do rÃ³Å¼nych formatÃ³w wektorowych i rastrowych
 Name:		hp2xx
 Version:	3.4.4
 Release:	2
@@ -28,12 +28,12 @@ HPGL/2.
 
 hp2xx can be used as ImageMagick delegate to convert HPGL files.
 
-%description -l pl
-hp2xx czyta pliki ¼ród³owe HPGL, interpretuje i konwertuje do innego
-formatu wektorowego lub którego¶ z formatów rastrowych. Aktualnie
-parser HPGL rozpoznaje podzbiór HPGL/2.
+%description -l pl.UTF-8
+hp2xx czyta pliki ÅºrÃ³dÅ‚owe HPGL, interpretuje i konwertuje do innego
+formatu wektorowego lub ktÃ³regoÅ› z formatÃ³w rastrowych. Aktualnie
+parser HPGL rozpoznaje podzbiÃ³r HPGL/2.
 
-hp2xx mo¿e byæ u¿ywany przez ImageMagick do konwersji plików HPGL.
+hp2xx moÅ¼e byÄ‡ uÅ¼ywany przez ImageMagick do konwersji plikÃ³w HPGL.
 
 %prep
 %setup -q
