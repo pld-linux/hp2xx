@@ -1,5 +1,5 @@
 Summary:	HPGL converter into some vector and raster formats
-Summary(pl.UTF-8):   Konwerter z języka HPGL do różnych formatów wektorowych i rastrowych
+Summary(pl.UTF-8):	Konwerter z języka HPGL do różnych formatów wektorowych i rastrowych
 Name:		hp2xx
 Version:	3.4.4
 Release:	2
