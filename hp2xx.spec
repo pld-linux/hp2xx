@@ -5,7 +5,7 @@ Version:	3.4.4
 Release:	2
 License:	GPL
 Group:		Applications/Graphics
-Source0:	ftp://ftp.gnu.org/gnu/hp2xx/%{name}-%{version}.tar.gz
+Source0:	http://ftp.gnu.org/gnu/hp2xx/%{name}-%{version}.tar.gz
 # Source0-md5:	18808580d24b7caf2c4c7045c093329f
 Patch0:		%{name}-makefile.patch
 Patch1:		%{name}-info.patch
