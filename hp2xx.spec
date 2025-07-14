@@ -37,9 +37,9 @@ hp2xx może być używany przez ImageMagick do konwersji plików HPGL.
 
 %prep
 %setup -q
-%patch0 -p1
-%patch1 -p1
-%patch2 -p1
+%patch -P0 -p1
+%patch -P1 -p1
+%patch -P2 -p1
 
 %build
 %{__make} \
